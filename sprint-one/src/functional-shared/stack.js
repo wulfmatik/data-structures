@@ -20,8 +20,10 @@ var extend = function(to, from) {
     to[key] = from[key];
   }
 };
+
 // create methods object to store methods
 var stackMethods = {};
+
 // create push method
 stackMethods.push = function(value) {
   // find storage length
@@ -29,6 +31,7 @@ stackMethods.push = function(value) {
   // add current value to numeric key in storage object
   this.storage[storageLength] = value;
 };
+
 // create pop method
 stackMethods.pop = function() {
   // get length of storage object
@@ -43,6 +46,7 @@ stackMethods.pop = function() {
     return poppedValue;
   }
 };
+
 // create size method
 stackMethods.size = function() {
   // return current length of storage object keys
