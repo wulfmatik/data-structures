@@ -22,10 +22,7 @@ HashTable.prototype.insert = function(k, v) {
   } else {
     var bucket = [];
     bucket.push([k, v]);
-    console.log('bucket: ', bucket);
-    console.log('index: ', index);
     this._storage.set(index, bucket);
-    console.log('expected: ', this._storage[index]);
   }
 };
 
