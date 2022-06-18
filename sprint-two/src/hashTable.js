@@ -7,12 +7,40 @@ var HashTable = function() {
 
 HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  this._storage.set(index, v);
+  var bucket = this._storage.get(index);
+
+  if (bucket) {
+    for (var i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === k) {
+        bucket[i][1] = v;
+        this._storage.set(index, bucket);
+        return;
+      }
+    }
+    bucket.push([k, v]);
+    this._storage.set(index, bucket);
+  } else {
+    var bucket = [];
+    bucket.push([k, v]);
+    console.log('bucket: ', bucket);
+    console.log('index: ', index);
+    this._storage.set(index, bucket);
+    console.log('expected: ', this._storage[index]);
+  }
 };
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  return this._storage.get(index);
+  var bucket = this._storage.get(index);
+  if (bucket) {
+    for (var i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === k) {
+        return bucket[i][1];
+      }
+    }
+  } else {
+    return undefined;
+  }
 };
 
 HashTable.prototype.remove = function(k) {
