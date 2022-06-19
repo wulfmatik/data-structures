@@ -31,7 +31,6 @@ nodeMethods.insert = function(value) {
     }
     this.left.insert(value);
   }
-
 };
 
 nodeMethods.contains = function(value) {
@@ -61,6 +60,9 @@ nodeMethods.depthFirstLog = function(func) {
   if (this.right !== null) {
     this.right.depthFirstLog(func);
   }
+};
+
+nodeMethods.size = function() {
 
 };
 

@@ -46,6 +46,10 @@ HashTable.prototype.remove = function(k) {
   this._storage.set(index, undefined);
 };
 
+HashTable.prototype.size = function() {
+  return this._limit;
+};
+
 
 
 /*

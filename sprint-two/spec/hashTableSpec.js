@@ -73,4 +73,9 @@ describe('hashTable', function() {
     hashTable.remove('Mr.');
     expect(hashTable._limit).to.equal(8);
   });
+
+  it('should return size', function() {
+    hashTable.insert('Steven', 'Seagal');
+    expect(hashTable.size()).to.equal(8);
+  });
 });

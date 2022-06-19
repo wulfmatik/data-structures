@@ -4,12 +4,14 @@
 var Graph = function() {
   this.nodes = [];
   this.edges = {};
+  this.size = 0;
 };
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
   this.nodes.push(node);
   this.edges[node] = [];
+  this.size++;
 };
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.

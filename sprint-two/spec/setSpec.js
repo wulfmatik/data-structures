@@ -24,4 +24,10 @@ describe('set', function() {
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
 
+  it('should calculate size', function() {
+    set.add('Susan Sarandon');
+    set.add('Danny Glover');
+    expect(set.size()).to.equal(2);
+  });
+
 });
